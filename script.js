@@ -1,7 +1,7 @@
 function Content() {
   
 }
-Content.prototype.fetch = function(url) {
+Content.prototype.fetchCode = function(url) {
   let urlValue = url.value.trim();
   if(!urlValue) {
     alert("Something went wrong...")
