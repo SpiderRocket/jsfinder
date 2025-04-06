@@ -20,8 +20,7 @@ function tryFetchWithProxies(proxies, index) {
       return tryFetchWithProxies(proxies, index + 1);
     });
 }
-
-Content.prototype.fetchCode = function(url) {
+Content.prototype.display = function(url) {
   const urlValue = typeof url === 'string' ? url.trim() : url?.value?.trim();
   if (!urlValue) {
     alert("Invalid URL");
@@ -36,5 +35,11 @@ Content.prototype.fetchCode = function(url) {
 
   return tryFetchWithProxies(corsProxies, 0);
 }
+Content.prototype.fetch = function(url, output) {
+  let content = new Content();
+  content.display(url);
+  .then(html => {
+     output();
+  })
+}
 
-let content = new Content();
