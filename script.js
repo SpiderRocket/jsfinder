@@ -1,18 +1,7 @@
 function Content() {
   
 }
-Content.prototype.fetchCode = function(url) {
-  let urlValue = url.value.trim();
-  if(!urlValue) {
-    alert("Something went wrong...")
-  }
-  const corsProxies = [
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-    `https://corsproxy.io/?${encodeURIComponent(url)}`,
-    `https://cors-anywhere.herokuapp.com/${url}`
-  ];
-  tryFetchWithProxies(corsProxies, 0);
-  function tryFetchWithProxies(proxies, index) {
+function tryFetchWithProxies(proxies, index) {
       if (index >= proxies.length) {
         alert('Error: The proxies might be rate-limited or temporarily unavailable.');
         return;
@@ -33,5 +22,17 @@ Content.prototype.fetchCode = function(url) {
           tryFetchWithProxies(proxies, index + 1);
         });
     }
+Content.prototype.fetchCode = function(url) {
+  let urlValue = url.value.trim();
+  if(!urlValue) {
+    alert("Something went wrong...")
+  }
+  const corsProxies = [
+    `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    `https://corsproxy.io/?${encodeURIComponent(url)}`,
+    `https://cors-anywhere.herokuapp.com/${url}`
+  ];
+  tryFetchWithProxies(corsProxies, 0);
+  
 }
 let content = new Content();
