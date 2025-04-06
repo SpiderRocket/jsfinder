@@ -20,6 +20,7 @@ function tryFetchWithProxies(proxies, index) {
       return tryFetchWithProxies(proxies, index + 1);
     });
 }
+
 Content.prototype.fetchCode = function(url) {
   const urlValue = typeof url === 'string' ? url.trim() : url?.value?.trim();
   if (!urlValue) {
@@ -33,7 +34,7 @@ Content.prototype.fetchCode = function(url) {
     `https://cors-anywhere.herokuapp.com/${urlValue}`
   ];
 
-  return tryFetchWithProxies(corsProxies, 0);
+  return tryFetchWithProxies(corsProxies, 0); 
 }
-let content = new Content();
 
+let content = new Content();
