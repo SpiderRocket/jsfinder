@@ -42,4 +42,5 @@ Content.prototype.fetch = function(url, output) {
      output();
   })
 }
+let content = new Content();
 
