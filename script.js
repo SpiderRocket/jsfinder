@@ -20,7 +20,7 @@ function tryFetchWithProxies(proxies, index) {
       return tryFetchWithProxies(proxies, index + 1);
     });
 }
-Content.prototype.fetch = function(url) {
+Content.prototype.fetchCode = function(url) {
   const urlValue = typeof url === 'string' ? url.trim() : url?.value?.trim();
   if (!urlValue) {
     alert("Invalid URL");
